@@ -11,6 +11,23 @@
 |
 */
 
+
+
+Route::group(['middleware' => ['web']], function () {   
+    // your routes here
+Route::get('transactions','TransactionsController@index');//all transactions
+Route::post('transactions','TransactionsController@store'); //add transaction
+Route::get('categories','CategoriesController@index');//all categories
+Route::post('categories','CategoriesController@store'); //add category
+Route::put('categories/{id}','CategoriesController@update'); //update category
+ });
+
+
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('home', function () {
+    return view('home');
 });
